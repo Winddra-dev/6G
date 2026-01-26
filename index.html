@@ -10,7 +10,7 @@
         :root {
             --sage-green: #8FBC8F;
             --sage-dark: #6B8E6B;
-            --cream: #F5F7FA; /* Sedikit lebih putih agar bersih */
+            --cream: #F5F7FA;
             --cream-accent: #F5F5DC;
             --soft-orange: #FFB347;
             --text-dark: #2D3436;
@@ -55,7 +55,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             text-align: center;
-            flex: 1; /* Center absolute effect */
+            flex: 1;
         }
 
         .nav-btn {
@@ -77,6 +77,7 @@
             font-weight: 700;
             font-family: 'Outfit', sans-serif;
             box-shadow: 0 4px 15px rgba(143, 188, 143, 0.4);
+            cursor: pointer;
         }
 
         .btn-group:hover {
@@ -133,7 +134,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            opacity: 0; /* Animation initial state */
+            opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
@@ -156,7 +157,7 @@
             font-family: 'Outfit', sans-serif;
             font-size: clamp(2rem, 4vw, 3rem);
             color: var(--sage-green);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             text-align: center;
             font-weight: 800;
         }
@@ -183,10 +184,10 @@
             line-height: 1.8;
         }
 
-        /* ================= SLIDE 2: KELOMPOK (1 Leader + 4 Members) ================= */
+        /* ================= SLIDE 2: KELOMPOK ================= */
         .group-wrapper {
             display: flex;
-            justify-content: center; /* Awal tengah */
+            justify-content: center;
             align-items: flex-start;
             gap: 2rem;
             width: 100%;
@@ -194,13 +195,12 @@
         }
 
         .group-wrapper.active-state {
-            /* Geser sedikit ke kiri untuk memberi ruang kanan */
             transform: translateX(-15%); 
         }
 
         .member-list {
             display: grid;
-            grid-template-columns: repeat(1, 1fr); /* Stack vertical */
+            grid-template-columns: repeat(1, 1fr);
             gap: 1rem;
             width: 300px;
         }
@@ -232,7 +232,6 @@
         .member-name { font-weight: 700; font-size: 1.1rem; }
         .member-role { font-size: 0.85rem; color: var(--text-light); margin-top: 4px; }
 
-        /* Profile Frame */
         .profile-frame {
             width: 400px;
             background: white;
@@ -240,7 +239,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             position: absolute;
-            left: 55%; /* Muncul di sebelah kanan */
+            left: 55%;
             top: 0;
             opacity: 0;
             transform: translateX(30px) scale(0.95);
@@ -267,7 +266,7 @@
             border: 4px solid var(--sage-green);
         }
 
-        /* ================= SLIDE 3-6: MAKANAN (Interactive) ================= */
+        /* ================= SLIDE 3-6: MAKANAN ================= */
         .food-stage {
             position: relative;
             width: 100%;
@@ -284,14 +283,13 @@
             z-index: 10;
         }
         
-        /* Animasi Berputar saat hover/active */
         .food-icon-wrapper:hover .food-emoji,
         .food-stage.active .food-emoji {
-            transform: rotate(15deg) scale(1.1); /* Smooth rotation */
+            transform: rotate(15deg) scale(1.1);
         }
         
         .food-stage.active.even .food-emoji {
-            transform: rotate(-15deg) scale(1.1); /* Rotate left for even slides */
+            transform: rotate(-15deg) scale(1.1);
         }
 
         .food-emoji {
@@ -311,7 +309,6 @@
             transition: opacity 0.3s;
         }
 
-        /* INFO PANEL (Hidden Initially) */
         .info-panel {
             position: absolute;
             background: white;
@@ -327,33 +324,19 @@
             border: 2px solid var(--sage-green);
         }
 
-        /* POSITIONS & ANIMATIONS */
-        
-        /* GANJIL (Nasi, Tahu): Geser Kiri, Info Kanan */
-        .food-stage.odd.active .food-icon-wrapper {
-            transform: translateX(-180px); /* Geser tidak terlalu jauh */
-        }
-        .food-stage.odd .info-panel {
-            left: 55%; /* Muncul di area kanan tengah */
-        }
+        .food-stage.odd.active .food-icon-wrapper { transform: translateX(-180px); }
+        .food-stage.odd .info-panel { left: 55%; }
 
-        /* GENAP (Ayam, Sayur): Geser Kanan, Info Kiri */
-        .food-stage.even.active .food-icon-wrapper {
-            transform: translateX(180px);
-        }
-        .food-stage.even .info-panel {
-            right: 55%; /* Muncul di area kiri tengah */
-        }
+        .food-stage.even.active .food-icon-wrapper { transform: translateX(180px); }
+        .food-stage.even .info-panel { right: 55%; }
 
-        /* Show Panel State */
         .food-stage.active .info-panel {
             opacity: 1;
             transform: scale(1);
             pointer-events: all;
-            transition-delay: 0.2s; /* Muncul setelah ikon geser */
+            transition-delay: 0.2s;
         }
 
-        /* Nutrition Data Styling */
         .nutrition-grid {
             display: grid;
             grid-template-columns: 1fr auto;
@@ -372,7 +355,6 @@
             border-left: 4px solid var(--soft-orange);
         }
 
-        /* Specific Table for Sayur Orak-arik */
         .breakdown-table {
             width: 100%;
             border-collapse: collapse;
@@ -383,7 +365,7 @@
         .breakdown-table tr:last-child td { border: none; }
         .ingredient { font-weight: 700; color: var(--sage-green); }
 
-        /* ================= SLIDE 7: BUAH (SPLIT) ================= */
+        /* ================= SLIDE 7: BUAH ================= */
         .split-container {
             display: flex;
             width: 100%;
@@ -408,24 +390,93 @@
         .split-side:hover { transform: translateY(-10px); }
         .split-side:hover .food-emoji { transform: rotate(15deg) scale(1.1); }
 
-        /* ================= SLIDE 8: ARTIKEL (KOSONG) ================= */
-        .article-placeholder {
-            width: 80%;
-            height: 400px;
-            border: 3px dashed #ccc;
+        /* ================= SLIDE 8: ARTIKEL (UPDATED) ================= */
+        /* Container baru agar bisa scroll jika teks panjang, tanpa merusak SPA */
+        .article-scroll-container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            padding: 2.5rem;
             border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #fdfdfd;
-            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            max-height: 70vh; /* Agar bisa scroll di dalam slide */
+            overflow-y: auto; /* Enable scroll */
+            text-align: left;
+        }
+
+        .article-scroll-container h3 {
+            color: var(--sage-dark);
+            margin-bottom: 1.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--cream-accent);
+            padding-bottom: 10px;
+        }
+
+        .article-scroll-container p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .quote-box {
+            background: var(--cream-accent);
+            border-left: 5px solid var(--soft-orange);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--text-dark);
+            border-radius: 0 10px 10px 0;
         }
         
-        .article-placeholder::after {
-            content: "Area Konten Artikel (Silakan Isi)";
-            color: #999;
+        .quote-source {
+            display: block;
+            margin-top: 10px;
             font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--sage-green);
+        }
+
+        .menu-list-summary {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .menu-list-summary li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .menu-list-summary li strong {
+            color: var(--sage-green);
+        }
+
+        .menu-list-summary li::before {
+            content: "•";
+            color: var(--soft-orange);
+            font-weight: bold;
             font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* Custom Scrollbar for Article */
+        .article-scroll-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .article-scroll-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .article-scroll-container::-webkit-scrollbar-thumb {
+            background: var(--sage-green);
+            border-radius: 4px;
         }
 
         /* ================= SLIDE 9: PENUTUP ================= */
@@ -443,9 +494,8 @@
             .navbar { padding: 0.8rem 1rem; }
             .nav-title { font-size: 1rem; }
             
-            /* Slide 2 Mobile */
             .group-wrapper { flex-direction: column; align-items: center; }
-            .group-wrapper.active-state { transform: translateY(-20px); } /* Geser atas dikit */
+            .group-wrapper.active-state { transform: translateY(-20px); } 
             .profile-frame {
                 position: relative;
                 left: auto;
@@ -455,10 +505,8 @@
             }
             .profile-frame.show { transform: translateY(0); }
 
-            /* Food Slides Mobile: Atas-Bawah Animation */
             .food-stage { flex-direction: column; height: auto; padding: 2rem 0; }
             
-            /* Override Geser Kiri/Kanan menjadi Atas/Bawah */
             .food-stage.odd.active .food-icon-wrapper,
             .food-stage.even.active .food-icon-wrapper {
                 transform: translateY(-50px) scale(0.8);
@@ -469,7 +517,7 @@
                 width: 100%;
                 left: auto !important;
                 right: auto !important;
-                margin-top: -20px; /* Pull up closer to icon */
+                margin-top: -20px;
                 opacity: 0;
                 transform: translateY(20px);
             }
@@ -479,6 +527,11 @@
             }
             
             .split-container { flex-direction: column; }
+            
+            .article-scroll-container {
+                padding: 1.5rem;
+                max-height: 60vh;
+            }
         }
     </style>
 </head>
@@ -500,7 +553,7 @@
         <a href="#slide5">🧈 Protein Nabati</a>
         <a href="#slide6">🥗 Vitamin & Serat</a>
         <a href="#slide7">🍇 Buah-buahan</a>
-        <a href="#slide8">📰 Artikel</a>
+        <a href="#slide8">📰 Artikel Penting</a>
         <a href="#slide9">✨ Penutup</a>
     </div>
 
@@ -685,23 +738,38 @@
 
     <section class="slide" id="slide8">
         <div class="slide-content">
-            <h2 class="section-title">Artikel Gizi</h2>
-            <div class="article-placeholder">
-                Makanan adalah salah satu kebutuhan pokok dalam hidup. Maka dari itu, menu makanan sehat harus diterapkan dalam kehidupan kita sehari-hari. Namun, di era kita ini, mulai banyak orang yang tidak mempedulikan gizi yang terkandung pada makanan yang mereka konsumsi. Orang-orang seringkali membeli makanan cepat saji yang lebih mudah dan relatif murah, tetapi tidak memiliki gizi seimbang yang kita butuhkan. 
+            <h2 class="section-title">Pentingnya Gizi Seimbang</h2>
+            <div class="article-scroll-container">
+                <h3>Bahaya Makanan Cepat Saji & Rekomendasi Gizi</h3>
+                
+                <p>
+                    Makanan adalah kebutuhan pokok, namun di era modern ini, banyak orang mengabaikan kandungan gizi demi kenyamanan makanan cepat saji. Makanan instan memang murah dan mudah didapat, tetapi seringkali miskin nutrisi penting yang tubuh butuhkan.
+                </p>
 
-Persatuan Ahli Gizi Indonesia (PERSAGI) menyoroti masih tingginya konsumsi makanan ultra-processed food, terutama di kalangan anak-anak dan remaja. Dalam peringatan Hari Gizi Nasional, PERSAGI mengingatkan kebiasaan mengonsumsi makanan dan minuman berpemanis serta makanan kemasan berisiko memicu berbagai penyakit kronis di kemudian hari.
-Edukator gizi PERSAGI, Ni Ketut Aryas Tami mengimbau masyarakat untuk membatasi konsumsi makanan UPF dan tinggi gula garam lemak (GGL).
-"Kita harus mengurangi makanan proses, karena itu menjadi risiko untuk penyakit. Banyak mengandung gula, garam, dan lemak. Apalagi minuman berpemanis, isinya hanya kalori dan energi, tidak ada zat gizi lain. Itu mudah diserap tubuh dan cepat disimpan menjadi lemak," bebernya saat ditemui detikcom, Rabu (21/1/2026).
-Untuk mewujudkan hal tersebut, berikut salah satu rekomendasi menu makan sehat bergizi seimbang:
-Nasi Putih; sebagai karbohidrat utama, nasi putih berperan sebagai sumber energi utama tubuh untuk aktivitas sehari-hari, dengan kalori 130 kkal, karbohidrat 28 g, dan protein 2.7 g per 100 g.
-Ayam Fillet Teriyaki; sebagai protein hewani yang berperan sebagai sumber protein utama, dengan kalori 165 kkal dan protein 31 g.
-Tahu; sebagai protein nabati yang berperan sebagai lauk tambahan sekaligus pelengkap, dengan kalori 76 kkal, protein 8 g, dan kalsium 350 mg.
-Sayur Orak-Arik; sebagai sumber serat pada makanan dengan isian wortel yang mengandung Vitamin A, telur yang mengandung protein, buncis yang mengandung serat, dan jagung yang mengandung karbohidrat.
-- Buah Nanas; sebagai buah pelengkap yang mengandung enzim Bromelain untuk membantu proses pencernaan.
-- Buah Anggur; sebagai buah pencuci mulut yang kaya antioksidan resveratrol untuk mencegah penuaan dini.
+                <p>
+                    Persatuan Ahli Gizi Indonesia (PERSAGI) menyoroti tingginya konsumsi <em>ultra-processed food</em> (UPF) pada anak dan remaja, yang berisiko memicu penyakit kronis.
+                </p>
 
-	Kesimpulannya, pola makan sehat itu penting karena makanan memberi energi dan zat gizi yang tubuh butuhkan, jadi kita harus mengurangi makanan cepat saji dan minuman manis yang banyak mengandung gula, garam, dan lemak seperti yang diingatkan PERSAGI; lebih baik memilih menu seimbang seperti nasi putih untuk karbohidrat, ayam fillet atau tahu untuk protein, sayur orak-arik untuk serat dan vitamin, serta buah seperti nanas dan anggur untuk membantu pencernaan dan memberi antioksidan, sehingga kalau kita makan teratur dan bergizi kemungkinan sakit berkurang dan tubuh bisa tumbuh dan beraktivitas dengan baik.
-</div>
+                <div class="quote-box">
+                    "Kita harus mengurangi makanan proses, karena itu menjadi risiko untuk penyakit. Banyak mengandung gula, garam, dan lemak. Apalagi minuman berpemanis, isinya hanya kalori dan energi, tidak ada zat gizi lain."
+                    <span class="quote-source">- Ni Ketut Aryas Tami, Edukator Gizi PERSAGI</span>
+                </div>
+
+                <p>Berikut adalah rekomendasi menu sehat yang telah kami susun untuk keseimbangan gizi harian Anda:</p>
+                
+                <ul class="menu-list-summary">
+                    <li><strong>Nasi Putih:</strong> Sumber energi utama (28g Karbohidrat, 130 kkal).</li>
+                    <li><strong>Ayam Fillet Teriyaki:</strong> Protein hewani untuk regenerasi sel (31g Protein).</li>
+                    <li><strong>Tahu:</strong> Protein nabati dan sumber kalsium tinggi (350 mg Kalsium).</li>
+                    <li><strong>Sayur Orak-Arik:</strong> Kombinasi Vitamin A (Wortel) dan serat (Buncis) untuk imunitas.</li>
+                    <li><strong>Buah Nanas:</strong> Mengandung enzim Bromelain untuk pencernaan.</li>
+                    <li><strong>Buah Anggur:</strong> Kaya antioksidan resveratrol untuk anti-aging.</li>
+                </ul>
+
+                <p>
+                    <strong>Kesimpulan:</strong> Pola makan sehat sangat penting karena makanan adalah bahan bakar tubuh. Mengurangi makanan instan dan menggantinya dengan menu seimbang seperti di atas akan mengurangi risiko penyakit, membantu pertumbuhan, dan memastikan tubuh beraktivitas dengan optimal.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -750,8 +818,6 @@ Sayur Orak-Arik; sebagai sumber serat pada makanan dengan isian wortel yang meng
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Reset animations when re-entering? Optional. 
-                    // For now, let's keep it persistent once loaded.
                 }
             });
         }, { threshold: 0.2 });
@@ -763,12 +829,10 @@ Sayur Orak-Arik; sebagai sumber serat pada makanan dengan isian wortel yang meng
             const wrapper = document.getElementById('groupWrapper');
             const frame = document.getElementById('profileFrame');
             
-            // Set Data
             document.getElementById('pName').innerText = name;
             document.getElementById('pRole').innerText = role;
             document.getElementById('pDesc').innerText = desc;
 
-            // Animate
             wrapper.classList.add('active-state');
             frame.classList.add('show');
         }
@@ -784,24 +848,19 @@ Sayur Orak-Arik; sebagai sumber serat pada makanan dengan isian wortel yang meng
         function toggleFood(stageId) {
             const stage = document.getElementById(stageId);
             
-            // Jika klik yang sama, tutup.
             if (currentOpenFood === stageId) {
                 stage.classList.remove('active');
                 currentOpenFood = null;
                 return;
             }
 
-            // Jika ada yang terbuka lain, tutup dulu
             if (currentOpenFood) {
                 document.getElementById(currentOpenFood).classList.remove('active');
             }
 
-            // Buka yang baru
             stage.classList.add('active');
             currentOpenFood = stageId;
         }
-
     </script>
 </body>
-
 </html>
