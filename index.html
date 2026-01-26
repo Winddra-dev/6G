@@ -266,7 +266,91 @@
             border: 4px solid var(--sage-green);
         }
 
-        /* ================= SLIDE 3-6: MAKANAN ================= */
+        /* ================= SLIDE 3 (Formerly 8): ARTIKEL ================= */
+        .article-scroll-container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            max-height: 70vh;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .article-scroll-container h3 {
+            color: var(--sage-dark);
+            margin-bottom: 1.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem; /* Sedikit diperbesar */
+            text-align: center; /* Dipusatkan agar seperti judul artikel */
+            border-bottom: 2px solid var(--cream-accent);
+            padding-bottom: 15px;
+        }
+
+        .article-scroll-container p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .quote-box {
+            background: var(--cream-accent);
+            border-left: 5px solid var(--soft-orange);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--text-dark);
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .quote-source {
+            display: block;
+            margin-top: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--sage-green);
+        }
+
+        .menu-list-summary {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .menu-list-summary li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .menu-list-summary li strong {
+            color: var(--sage-green);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .menu-list-summary li::before {
+            content: "•";
+            color: var(--soft-orange);
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* Scrollbar Artikel */
+        .article-scroll-container::-webkit-scrollbar { width: 8px; }
+        .article-scroll-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .article-scroll-container::-webkit-scrollbar-thumb { background: var(--sage-green); border-radius: 4px; }
+
+
+        /* ================= SLIDE 4-7: MAKANAN ================= */
         .food-stage {
             position: relative;
             width: 100%;
@@ -365,7 +449,7 @@
         .breakdown-table tr:last-child td { border: none; }
         .ingredient { font-weight: 700; color: var(--sage-green); }
 
-        /* ================= SLIDE 7: BUAH ================= */
+        /* ================= SLIDE 8: BUAH (NEW ANIMATION) ================= */
         .split-container {
             display: flex;
             width: 100%;
@@ -383,100 +467,29 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            transition: all 0.4s ease;
             cursor: pointer;
         }
         
-        .split-side:hover { transform: translateY(-10px); }
-        .split-side:hover .food-emoji { transform: rotate(15deg) scale(1.1); }
-
-        /* ================= SLIDE 8: ARTIKEL (UPDATED) ================= */
-        /* Container baru agar bisa scroll jika teks panjang, tanpa merusak SPA */
-        .article-scroll-container {
-            width: 100%;
-            max-width: 900px;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            max-height: 70vh; /* Agar bisa scroll di dalam slide */
-            overflow-y: auto; /* Enable scroll */
-            text-align: left;
-        }
-
-        .article-scroll-container h3 {
-            color: var(--sage-dark);
-            margin-bottom: 1.5rem;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--cream-accent);
-            padding-bottom: 10px;
-        }
-
-        .article-scroll-container p {
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.2rem;
-            text-align: justify;
-        }
-
-        .quote-box {
-            background: var(--cream-accent);
-            border-left: 5px solid var(--soft-orange);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            color: var(--text-dark);
-            border-radius: 0 10px 10px 0;
-        }
-        
-        .quote-source {
-            display: block;
+        /* Text wrapper style untuk animasi halus */
+        .split-side p {
+            transition: transform 0.4s ease, opacity 0.3s ease;
+            text-align: center;
+            color: var(--text-light);
             margin-top: 10px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--sage-green);
         }
 
-        .menu-list-summary {
-            list-style: none;
-            margin-bottom: 1.5rem;
+        /* Hover Effect yang diminta */
+        .split-side:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
-        .menu-list-summary li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
-            line-height: 1.6;
-            color: #555;
+        .split-side:hover .food-emoji { 
+            transform: rotate(45deg) scale(1.1); /* Berputar 45 derajat */
         }
 
-        .menu-list-summary li strong {
-            color: var(--sage-green);
-        }
-
-        .menu-list-summary li::before {
-            content: "•";
-            color: var(--soft-orange);
-            font-weight: bold;
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-            top: -5px;
-        }
-
-        /* Custom Scrollbar for Article */
-        .article-scroll-container::-webkit-scrollbar {
-            width: 8px;
-        }
-        .article-scroll-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-        .article-scroll-container::-webkit-scrollbar-thumb {
-            background: var(--sage-green);
-            border-radius: 4px;
+        .split-side:hover p {
+            transform: translateY(20px); /* Teks turun ke bawah */
         }
 
         /* ================= SLIDE 9: PENUTUP ================= */
@@ -522,16 +535,10 @@
                 transform: translateY(20px);
             }
             
-            .food-stage.active .info-panel {
-                transform: translateY(0);
-            }
+            .food-stage.active .info-panel { transform: translateY(0); }
             
             .split-container { flex-direction: column; }
-            
-            .article-scroll-container {
-                padding: 1.5rem;
-                max-height: 60vh;
-            }
+            .article-scroll-container { padding: 1.5rem; max-height: 60vh; }
         }
     </style>
 </head>
@@ -548,12 +555,12 @@
     <div class="nav-menu" id="navMenu">
         <a href="#slide1">🏠 Beranda</a>
         <a href="#slide2">👥 Tim Kami</a>
-        <a href="#slide3">🍚 Karbohidrat</a>
-        <a href="#slide4">🍗 Protein Hewani</a>
-        <a href="#slide5">🧈 Protein Nabati</a>
-        <a href="#slide6">🥗 Vitamin & Serat</a>
-        <a href="#slide7">🍇 Buah-buahan</a>
-        <a href="#slide8">📰 Artikel Penting</a>
+        <a href="#slide3">📰 Artikel</a>
+        <a href="#slide4">🍚 Karbohidrat</a>
+        <a href="#slide5">🍗 Protein Hewani</a>
+        <a href="#slide6">🧈 Protein Nabati</a>
+        <a href="#slide7">🥗 Vitamin & Serat</a>
+        <a href="#slide8">🍇 Buah-buahan</a>
         <a href="#slide9">✨ Penutup</a>
     </div>
 
@@ -570,23 +577,23 @@
             <div class="group-wrapper" id="groupWrapper">
                 <div class="member-list">
                     <div class="member-card" onclick="showProfile('Ketua', 'Project Manager', 'Mengatur alur kerja dan konsep utama presentasi.')">
-                        <div class="member-name">1. Wirasena P. Narendra</div>
+                        <div class="member-name">1. Nama Ketua</div>
                         <div class="member-role">Ketua Kelompok</div>
                     </div>
                     <div class="member-card" onclick="showProfile('Anggota 1', 'Researcher', 'Mencari data valid tentang nilai gizi makanan.')">
-                        <div class="member-name">2. Viena Elisabeth P.</div>
+                        <div class="member-name">2. Nama Anggota 1</div>
                         <div class="member-role">Anggota</div>
                     </div>
                     <div class="member-card" onclick="showProfile('Anggota 2', 'UI Designer', 'Merancang tata letak dan pemilihan warna.')">
-                        <div class="member-name">3. Nathaniel F. Keiko</div>
+                        <div class="member-name">3. Nama Anggota 2</div>
                         <div class="member-role">Anggota</div>
                     </div>
                     <div class="member-card" onclick="showProfile('Anggota 3', 'Frontend Dev', 'Implementasi kode HTML/CSS dan Animasi.')">
-                        <div class="member-name">4. Eunike Tifella S.</div>
+                        <div class="member-name">4. Nama Anggota 3</div>
                         <div class="member-role">Anggota</div>
                     </div>
                     <div class="member-card" onclick="showProfile('Anggota 4', 'Content Writer', 'Menulis narasi dan artikel pendukung.')">
-                        <div class="member-name">5. Joseres Sanggapan S.</div>
+                        <div class="member-name">5. Nama Anggota 4</div>
                         <div class="member-role">Anggota</div>
                     </div>
                 </div>
@@ -603,6 +610,59 @@
     </section>
 
     <section class="slide" id="slide3">
+        <div class="slide-content">
+            <h2 class="section-title">Pentingnya Gizi Seimbang</h2>
+            <div class="article-scroll-container">
+                <h3>Artikel Ilmiah Populer</h3>
+
+                <p>
+                    Makanan adalah salah satu kebutuhan pokok dalam hidup. Maka dari itu, menu makanan sehat harus diterapkan dalam kehidupan kita sehari-hari. Namun, di era kita ini, mulai banyak orang yang tidak mempedulikan gizi yang terkandung pada makanan yang mereka konsumsi. Orang-orang seringkali membeli makanan cepat saji yang lebih mudah dan relatif murah, tetapi tidak memiliki gizi seimbang yang kita butuhkan.
+                </p>
+
+                <p>
+                    Persatuan Ahli Gizi Indonesia (PERSAGI) menyoroti masih tingginya konsumsi makanan <em>ultra-processed food</em>, terutama di kalangan anak-anak dan remaja. Dalam peringatan Hari Gizi Nasional, PERSAGI mengingatkan kebiasaan mengonsumsi makanan dan minuman berpemanis serta makanan kemasan berisiko memicu berbagai penyakit kronis di kemudian hari.
+                </p>
+
+                <p>
+                    Edukator gizi PERSAGI, Ni Ketut Aryas Tami mengimbau masyarakat untuk membatasi konsumsi makanan UPF dan tinggi gula garam lemak (GGL).
+                </p>
+
+                <div class="quote-box">
+                    "Kita harus mengurangi makanan proses, karena itu menjadi risiko untuk penyakit. Banyak mengandung gula, garam, dan lemak. Apalagi minuman berpemanis, isinya hanya kalori dan energi, tidak ada zat gizi lain. Itu mudah diserap tubuh dan cepat disimpan menjadi lemak,"
+                    <span class="quote-source">- Ni Ketut Aryas Tami (detikcom, Rabu 21/1/2026)</span>
+                </div>
+
+                <p>Untuk mewujudkan hal tersebut, berikut salah satu rekomendasi menu makan sehat bergizi seimbang:</p>
+
+                <ul class="menu-list-summary">
+                    <li>
+                        <strong>Nasi Putih;</strong> sebagai karbohidrat utama, nasi putih berperan sebagai sumber energi utama tubuh untuk aktivitas sehari-hari, dengan kalori 130 kkal, karbohidrat 28 g, dan protein 2.7 g per 100 g.
+                    </li>
+                    <li>
+                        <strong>Ayam Fillet Teriyaki;</strong> sebagai protein hewani yang berperan sebagai sumber protein utama, dengan kalori 165 kkal dan protein 31 g.
+                    </li>
+                    <li>
+                        <strong>Tahu;</strong> sebagai protein nabati yang berperan sebagai lauk tambahan sekaligus pelengkap, dengan kalori 76 kkal, protein 8 g, dan kalsium 350 mg.
+                    </li>
+                    <li>
+                        <strong>Sayur Orak-Arik;</strong> sebagai sumber serat pada makanan dengan isian wortel yang mengandung Vitamin A, telur yang mengandung protein, buncis yang mengandung serat, dan jagung yang mengandung karbohidrat.
+                    </li>
+                    <li>
+                        <strong>Buah Nanas;</strong> sebagai buah pelengkap yang mengandung enzim Bromelain untuk membantu proses pencernaan.
+                    </li>
+                    <li>
+                        <strong>Buah Anggur;</strong> sebagai buah pencuci mulut yang kaya antioksidan resveratrol untuk mencegah penuaan dini.
+                    </li>
+                </ul>
+
+                <p>
+                    Kesimpulannya, pola makan sehat itu penting karena makanan memberi energi dan zat gizi yang tubuh butuhkan, jadi kita harus mengurangi makanan cepat saji dan minuman manis yang banyak mengandung gula, garam, dan lemak seperti yang diingatkan PERSAGI; lebih baik memilih menu seimbang seperti nasi putih untuk karbohidrat, ayam fillet atau tahu untuk protein, sayur orak-arik untuk serat dan vitamin, serta buah seperti nanas dan anggur untuk membantu pencernaan dan memberi antioksidan, sehingga kalau kita makan teratur dan bergizi kemungkinan sakit berkurang dan tubuh bisa tumbuh dan beraktivitas dengan baik.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide" id="slide4">
         <div class="slide-content">
             <h2 class="section-title">Karbohidrat Utama</h2>
             <div class="food-stage odd" id="stage-nasi">
@@ -626,7 +686,7 @@
         </div>
     </section>
 
-    <section class="slide" id="slide4">
+    <section class="slide" id="slide5">
         <div class="slide-content">
             <h2 class="section-title">Protein Hewani</h2>
             <div class="food-stage even" id="stage-ayam">
@@ -650,7 +710,7 @@
         </div>
     </section>
 
-    <section class="slide" id="slide5">
+    <section class="slide" id="slide6">
         <div class="slide-content">
             <h2 class="section-title">Protein Nabati</h2>
             <div class="food-stage odd" id="stage-tahu">
@@ -674,7 +734,7 @@
         </div>
     </section>
 
-    <section class="slide" id="slide6">
+    <section class="slide" id="slide7">
         <div class="slide-content">
             <h2 class="section-title">Sayur & Vitamin</h2>
             <div class="food-stage even" id="stage-sayur">
@@ -712,14 +772,14 @@
         </div>
     </section>
 
-    <section class="slide" id="slide7">
+    <section class="slide" id="slide8">
         <div class="slide-content">
             <h2 class="section-title">Buah Penutup</h2>
             <div class="split-container">
                 <div class="split-side">
                     <div class="food-emoji">🍇</div>
                     <h3>Anggur</h3>
-                    <p style="text-align:center; color:var(--text-light); margin-top:10px;">
+                    <p>
                         <strong>69 kkal / 100g</strong><br>
                         Kaya antioksidan resveratrol.<br>Mencegah penuaan dini.
                     </p>
@@ -727,48 +787,11 @@
                 <div class="split-side">
                     <div class="food-emoji">🍍</div>
                     <h3>Nanas</h3>
-                    <p style="text-align:center; color:var(--text-light); margin-top:10px;">
+                    <p>
                         <strong>50 kkal / 100g</strong><br>
                         Mengandung enzim Bromelain.<br>Membantu pencernaan protein.
                     </p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="slide" id="slide8">
-        <div class="slide-content">
-            <h2 class="section-title">Pentingnya Gizi Seimbang</h2>
-            <div class="article-scroll-container">
-                <h3>Bahaya Makanan Cepat Saji & Rekomendasi Gizi</h3>
-                
-                <p>
-                    Makanan adalah kebutuhan pokok, namun di era modern ini, banyak orang mengabaikan kandungan gizi demi kenyamanan makanan cepat saji. Makanan instan memang murah dan mudah didapat, tetapi seringkali miskin nutrisi penting yang tubuh butuhkan.
-                </p>
-
-                <p>
-                    Persatuan Ahli Gizi Indonesia (PERSAGI) menyoroti tingginya konsumsi <em>ultra-processed food</em> (UPF) pada anak dan remaja, yang berisiko memicu penyakit kronis.
-                </p>
-
-                <div class="quote-box">
-                    "Kita harus mengurangi makanan proses, karena itu menjadi risiko untuk penyakit. Banyak mengandung gula, garam, dan lemak. Apalagi minuman berpemanis, isinya hanya kalori dan energi, tidak ada zat gizi lain."
-                    <span class="quote-source">- Ni Ketut Aryas Tami, Edukator Gizi PERSAGI</span>
-                </div>
-
-                <p>Berikut adalah rekomendasi menu sehat yang telah kami susun untuk keseimbangan gizi harian Anda:</p>
-                
-                <ul class="menu-list-summary">
-                    <li><strong>Nasi Putih:</strong> Sumber energi utama (28g Karbohidrat, 130 kkal).</li>
-                    <li><strong>Ayam Fillet Teriyaki:</strong> Protein hewani untuk regenerasi sel (31g Protein).</li>
-                    <li><strong>Tahu:</strong> Protein nabati dan sumber kalsium tinggi (350 mg Kalsium).</li>
-                    <li><strong>Sayur Orak-Arik:</strong> Kombinasi Vitamin A (Wortel) dan serat (Buncis) untuk imunitas.</li>
-                    <li><strong>Buah Nanas:</strong> Mengandung enzim Bromelain untuk pencernaan.</li>
-                    <li><strong>Buah Anggur:</strong> Kaya antioksidan resveratrol untuk anti-aging.</li>
-                </ul>
-
-                <p>
-                    <strong>Kesimpulan:</strong> Pola makan sehat sangat penting karena makanan adalah bahan bakar tubuh. Mengurangi makanan instan dan menggantinya dengan menu seimbang seperti di atas akan mengurangi risiko penyakit, membantu pertumbuhan, dan memastikan tubuh beraktivitas dengan optimal.
-                </p>
             </div>
         </div>
     </section>
@@ -864,4 +887,3 @@
     </script>
 </body>
 </html>
-
