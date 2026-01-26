@@ -18,11 +18,7 @@
             --safe-padding: 5%;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Quicksand', sans-serif;
@@ -33,240 +29,139 @@
 
         /* ================= NAVBAR ================= */
         .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 2000;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: fixed; top: 0; width: 100%; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 2000; background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
-
         .nav-title {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--sage-green);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: center;
-            flex: 1;
+            font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem;
+            color: var(--sage-green); text-transform: uppercase; letter-spacing: 1px;
+            text-align: center; flex: 1;
         }
-
-        .nav-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            padding: 0.5rem;
-        }
-
+        .nav-btn { background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--text-dark); padding: 0.5rem; }
         .btn-group {
-            background: var(--sage-green);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            font-family: 'Outfit', sans-serif;
-            box-shadow: 0 4px 15px rgba(143, 188, 143, 0.4);
-            cursor: pointer;
-            text-transform: lowercase;
+            background: var(--sage-green); color: white; padding: 0.6rem 1.2rem;
+            border-radius: 50px; font-size: 0.9rem; font-weight: 700;
+            font-family: 'Outfit', sans-serif; box-shadow: 0 4px 15px rgba(143, 188, 143, 0.4);
+            cursor: pointer; text-transform: lowercase;
         }
-
-        .btn-group:hover {
-            transform: translateY(-2px);
-            background: var(--sage-dark);
-        }
+        .btn-group:hover { transform: translateY(-2px); background: var(--sage-dark); }
 
         /* Dropdown Menu */
         .nav-menu {
-            position: fixed;
-            top: 80px;
-            left: 20px;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-20px);
-            transition: all 0.4s;
-            z-index: 2100;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            min-width: 200px;
+            position: fixed; top: 80px; left: 20px; background: white; padding: 1.5rem;
+            border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            opacity: 0; visibility: hidden; transform: translateY(-20px); transition: all 0.4s;
+            z-index: 2100; display: flex; flex-direction: column; gap: 10px; min-width: 200px;
         }
-
         .nav-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
+        .nav-menu a { text-decoration: none; color: var(--text-dark); font-weight: 600; padding: 8px 12px; border-radius: 8px; transition: all 0.2s; }
         .nav-menu a:hover { background: var(--cream-accent); color: var(--sage-green); transform: translateX(5px); }
 
         /* ================= SLIDE COMMON ================= */
         .slide {
-            min-height: 100vh;
-            height: auto; 
-            padding: 120px var(--safe-padding) 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            min-height: 100vh; height: auto; padding: 120px var(--safe-padding) 80px;
+            display: flex; justify-content: center; align-items: center; position: relative;
+            opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease;
         }
-
         .slide.visible { opacity: 1; transform: translateY(0); }
-
-        .slide-content {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-        }
-
+        .slide-content { width: 100%; max-width: 1200px; display: flex; flex-direction: column; align-items: center; position: relative; }
         .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--sage-green);
-            margin-bottom: 2rem;
-            text-align: center;
-            font-weight: 800;
+            font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--sage-green); margin-bottom: 2rem; text-align: center; font-weight: 800;
         }
 
         /* ================= SLIDE 1: HERO ================= */
         #slide1 { background: linear-gradient(135deg, var(--cream-accent) 0%, white 100%); text-align: center; }
-        .hero-box h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            color: var(--sage-green);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
+        .hero-box h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); color: var(--sage-green); margin-bottom: 1.5rem; line-height: 1.1; }
         .hero-box p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: var(--text-light); line-height: 1.8; }
 
         /* ================= SLIDE 2: KELOMPOK ================= */
-        .group-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-            position: relative;
-        }
-
-        .member-list {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 1rem;
-            width: 320px;
-            transition: opacity 0.3s;
-        }
-
+        .group-wrapper { display: flex; justify-content: center; align-items: flex-start; width: 100%; position: relative; }
+        .member-list { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1rem; width: 320px; transition: opacity 0.3s; }
         .group-wrapper.active-state .member-list { opacity: 0.3; pointer-events: none; }
-
         .member-card {
-            background: white;
-            padding: 1.2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-left: 5px solid var(--sage-green);
+            background: white; padding: 1.2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            cursor: pointer; transition: all 0.3s ease; border-left: 5px solid var(--sage-green);
         }
         .member-card:hover { transform: translateX(10px); background: var(--cream-accent); }
         .member-name { font-weight: 700; font-size: 1.1rem; }
         .member-role { font-size: 0.85rem; color: var(--text-light); margin-top: 4px; }
-
-        /* POPUP TENGAH */
         .profile-frame {
-            width: 380px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.8);
-            pointer-events: none;
+            width: 380px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            padding: 2.5rem; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: absolute; top: 50%; left: 50%; opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8); pointer-events: none;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 10;
-            border: 1px solid rgba(143, 188, 143, 0.3);
-            text-align: center;
+            z-index: 10; border: 1px solid rgba(143, 188, 143, 0.3); text-align: center;
         }
-
-        .profile-frame.show {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-            pointer-events: all;
-        }
-
+        .profile-frame.show { opacity: 1; transform: translate(-50%, -50%) scale(1); pointer-events: all; }
         .profile-placeholder {
             width: 100px; height: 100px; background: #eee; border-radius: 50%;
             margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;
             font-size: 3rem; border: 4px solid var(--sage-green);
         }
 
-        /* ================= ARTIKEL FULL (NO SCROLL BAR) ================= */
+        /* ================= ARTIKEL STYLE ================= */
         .article-full-container {
-            width: 100%;
-            max-width: 900px;
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            text-align: left;
+            width: 100%; max-width: 900px; background: white; padding: 3rem;
+            border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid #eee; text-align: left;
         }
-
         .article-full-container h3 {
-            color: var(--sage-dark);
-            margin-bottom: 2rem;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem;
-            text-align: center;
-            border-bottom: 2px solid var(--cream-accent);
-            padding-bottom: 15px;
-            line-height: 1.4;
+            color: var(--sage-dark); margin-bottom: 2rem; font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem; text-align: center; border-bottom: 2px solid var(--cream-accent);
+            padding-bottom: 15px; line-height: 1.4;
         }
-
-        .article-full-container p {
-            line-height: 1.9;
-            color: #444;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-            font-size: 1.05rem;
-        }
-
+        .article-full-container p { line-height: 1.9; color: #444; margin-bottom: 1.5rem; text-align: justify; font-size: 1.05rem; }
         .quote-box {
-            background: var(--cream-accent);
-            border-left: 5px solid var(--soft-orange);
-            padding: 2rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: var(--text-dark);
-            border-radius: 0 10px 10px 0;
-            font-size: 1.1rem;
+            background: var(--cream-accent); border-left: 5px solid var(--soft-orange);
+            padding: 2rem; margin: 2rem 0; font-style: italic; color: var(--text-dark);
+            border-radius: 0 10px 10px 0; font-size: 1.1rem;
         }
-        
         .quote-source { display: block; margin-top: 15px; font-weight: 700; font-size: 0.9rem; color: var(--sage-green); }
+
+        /* BUTTON LIHAT SELENGKAPNYA */
+        .read-full-btn {
+            display: block; margin: 2rem auto 0; padding: 1rem 2.5rem;
+            background: var(--sage-green); color: white; border: none;
+            border-radius: 50px; font-size: 1rem; font-weight: 700;
+            cursor: pointer; box-shadow: 0 10px 20px rgba(143, 188, 143, 0.4);
+            transition: all 0.3s ease; font-family: 'Outfit', sans-serif;
+        }
+        .read-full-btn:hover { background: var(--sage-dark); transform: translateY(-3px); }
+
+        /* ================= MODAL FULL ARTICLE ================= */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);
+            z-index: 3000; opacity: 0; visibility: hidden;
+            transition: all 0.3s ease; display: flex; justify-content: center; align-items: center;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        
+        .modal-content {
+            background: white; width: 90%; max-width: 800px; height: 85vh;
+            border-radius: 20px; padding: 3rem; overflow-y: auto;
+            position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            transform: translateY(20px); transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        
+        .close-modal-btn {
+            position: absolute; top: 20px; right: 20px; background: #eee;
+            border: none; width: 40px; height: 40px; border-radius: 50%;
+            font-size: 1.5rem; cursor: pointer; color: #555;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        .close-modal-btn:hover { background: #ddd; color: red; }
+
+        /* Scrollbar Modal */
+        .modal-content::-webkit-scrollbar { width: 8px; }
+        .modal-content::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        .modal-content::-webkit-scrollbar-thumb { background: var(--sage-green); border-radius: 10px; }
 
         /* ================= MAKANAN (INTERAKTIF) ================= */
         .food-stage {
@@ -282,10 +177,7 @@
             font-size: clamp(6rem, 15vw, 10rem); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
             display: block; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .food-label {
-            font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 700;
-            color: var(--sage-green); margin-top: 1rem;
-        }
+        .food-label { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--sage-green); margin-top: 1rem; }
         .info-panel {
             position: absolute; background: white; padding: 2rem; border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1); width: 380px; opacity: 0;
@@ -313,10 +205,8 @@
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.4s ease; cursor: pointer; overflow: hidden;
         }
-        
         .split-side .food-emoji { transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
         .split-side p, .split-side h3 { transition: transform 0.5s ease, opacity 0.3s ease; text-align: center; position: relative; }
-
         .split-side:hover .food-emoji { transform: rotate(45deg) scale(1.1); }
         .split-side:hover h3 { transform: translateY(20px); color: var(--soft-orange); }
         .split-side:hover p { transform: translateY(30px); opacity: 0.8; }
@@ -335,6 +225,7 @@
             .food-stage.active .info-panel { transform: translateY(0); }
             .split-container { flex-direction: column; }
             .article-full-container { padding: 1.5rem; }
+            .modal-content { width: 95%; padding: 1.5rem; }
         }
     </style>
 </head>
@@ -359,6 +250,39 @@
         <a href="#slide8">🍇 Buah-buahan</a>
         <a href="#slide9">📑 Kesimpulan</a>
         <a href="#slide10">✨ Penutup</a>
+    </div>
+
+    <div class="modal-overlay" id="fullArticleModal">
+        <div class="modal-content">
+            <button class="close-modal-btn" onclick="toggleFullArticle()">×</button>
+            <div class="article-full-container" style="box-shadow: none; border: none; padding: 0; max-width: 100%;">
+                <h3>“Pola Makan Sehat dan Pemenuhan Kebutuhan Gizi”</h3>
+                
+                <p>
+                    Makanan adalah kebutuhan pokok, namun pola makan masyarakat modern semakin mengkhawatirkan. Berdasarkan data <strong>Riset Kesehatan Dasar (Riskesdas) Kemenkes RI</strong>, prevalensi obesitas pada orang dewasa di Indonesia mengalami peningkatan signifikan dari <strong>14,8%</strong> pada tahun 2013 menjadi <strong>21,8%</strong> pada tahun 2018.
+                </p>
+                <p>
+                    Kenaikan angka ini salah satunya dipicu oleh mudahnya akses terhadap makanan cepat saji yang rendah gizi namun tinggi kalori. Persatuan Ahli Gizi Indonesia (PERSAGI) pun secara konsisten menyoroti bahaya konsumsi <em>ultra-processed food</em>, terutama di kalangan remaja.
+                </p>
+                <div class="quote-box">
+                    "Kita harus mengurangi makanan proses, karena itu menjadi risiko untuk penyakit. Banyak mengandung gula, garam, dan lemak."
+                    <span class="quote-source">- Ni Ketut Aryas Tami (detikcom, 2026)</span>
+                </div>
+
+                <p><strong>Solusi Menu Gizi Seimbang</strong></p>
+                <p>
+                    Menghadapi tantangan tersebut, kami merekomendasikan susunan menu makan siang yang memenuhi kaidah gizi seimbang. Pertama, <strong>Nasi Putih</strong> dipilih sebagai sumber karbohidrat utama (130 kkal) untuk energi otak. Kedua, untuk protein hewani, kami memilih <strong>Ayam Fillet Teriyaki</strong> yang diolah secara <em>low sodium</em> untuk meminimalisir asupan garam berlebih.
+                </p>
+                <p>
+                    Sebagai pelengkap, <strong>Tahu Kuning</strong> hadir sebagai sumber protein nabati yang kaya kalsium dan murah meriah. Kebutuhan serat dipenuhi melalui <strong>Sayur Orak-Arik</strong> yang terdiri dari wortel, buncis, dan jagung. Terakhir, menu ditutup dengan buah <strong>Nanas dan Anggur</strong> yang kaya enzim pencernaan dan antioksidan.
+                </p>
+
+                <p><strong>Kesimpulan</strong></p>
+                <p>
+                    Pola makan sehat bukan pilihan, melainkan keharusan. Data kenaikan obesitas adalah peringatan nyata bagi kita. Dengan memilih menu yang beragam seperti kombinasi nasi, lauk hewani-nabati, sayur, dan buah, kita tidak hanya memenuhi rasa lapar, tetapi juga memenuhi hak tubuh untuk tetap sehat dan produktif.
+                </p>
+            </div>
+        </div>
     </div>
 
     <section class="slide visible" id="slide1">
@@ -411,26 +335,21 @@
             <h2 class="section-title">Artikel Ilmiah Populer</h2>
             <div class="article-full-container">
                 <h3>“Pola Makan Sehat dan Pemenuhan Kebutuhan Gizi”</h3>
-
                 <p>
                     Makanan adalah kebutuhan pokok, namun pola makan masyarakat modern semakin mengkhawatirkan. Berdasarkan data <strong>Riset Kesehatan Dasar (Riskesdas) Kemenkes RI</strong>, prevalensi obesitas pada orang dewasa di Indonesia mengalami peningkatan signifikan dari <strong>14,8%</strong> pada tahun 2013 menjadi <strong>21,8%</strong> pada tahun 2018.
                 </p>
-
                 <p>
-                    Kenaikan angka ini salah satunya dipicu oleh mudahnya akses terhadap makanan cepat saji yang rendah gizi namun tinggi kalori. Persatuan Ahli Gizi Indonesia (PERSAGI) pun secara konsisten menyoroti bahaya konsumsi <em>ultra-processed food</em>, terutama di kalangan remaja.
+                    Kenaikan angka ini salah satunya dipicu oleh mudahnya akses terhadap makanan cepat saji yang rendah gizi namun tinggi kalori. Persatuan Ahli Gizi Indonesia (PERSAGI) pun secara konsisten menyoroti bahaya konsumsi <em>ultra-processed food</em>.
                 </p>
-
                 <div class="quote-box">
-                    "Kita harus mengurangi makanan proses, karena itu menjadi risiko untuk penyakit. Banyak mengandung gula, garam, dan lemak. Apalagi minuman berpemanis, isinya hanya kalori dan energi, tidak ada zat gizi lain. Itu mudah diserap tubuh dan cepat disimpan menjadi lemak,"
-                    <span class="quote-source">- Ni Ketut Aryas Tami (detikcom, Rabu 21/1/2026)</span>
+                    "Kita harus mengurangi makanan proses, karena itu menjadi risiko untuk penyakit. Banyak mengandung gula, garam, dan lemak."
+                    <span class="quote-source">- Ni Ketut Aryas Tami (detikcom, 2026)</span>
                 </div>
-
                 <p>
-                    Menghadapi tantangan tersebut, kita tidak harus berhenti makan enak, melainkan makan dengan cerdas. Kelompok kami telah menyusun satu set menu makan siang lengkap yang memenuhi prinsip Gizi Seimbang: mengandung Karbohidrat Kompleks, Protein Hewani & Nabati, serta serat dari Sayur dan Buah.
+                    Menghadapi tantangan tersebut, kami menyusun rekomendasi menu makan siang yang memenuhi prinsip Gizi Seimbang.
                 </p>
-                <p style="text-align: center; font-weight: bold; color: var(--sage-green); margin-top: 2rem;">
-                    👇 Simak rincian menu dan kandungan gizinya di bawah ini 👇
-                </p>
+                
+                <button class="read-full-btn" onclick="toggleFullArticle()">📖 Baca Artikel Lengkap</button>
             </div>
         </div>
     </section>
@@ -472,7 +391,7 @@
                     </div>
                     <div class="benefit-box">
                         <strong>Info Sehat:</strong><br>
-                        Dimasak dengan kecap rendah natrium dan sedikit gula untuk mengurangi risiko penyakit, namun tetap kaya protein untuk otot.
+                        Dimasak dengan kecap rendah natrium dan sedikit gula untuk mengurangi risiko penyakit.
                     </div>
                 </div>
                 <div class="food-icon-wrapper" onclick="toggleFood('stage-ayam')">
@@ -513,16 +432,14 @@
             <div class="food-stage even" id="stage-sayur">
                 <div class="info-panel">
                     <h3 style="color:var(--sage-green); margin-bottom:1rem;">Sayur Orak-Arik</h3>
-                    <p style="font-size:0.9rem; margin-bottom:0.5rem; color:#666;">Komposisi Nutrisi:</p>
                     <table class="breakdown-table">
-                        <tr><td class="ingredient">🥕 Wortel</td><td>Vit A (Mata) & Beta Karoten</td></tr>
-                        <tr><td class="ingredient">🥚 Telur</td><td>Protein Lengkap & Kolin</td></tr>
+                        <tr><td class="ingredient">🥕 Wortel</td><td>Vit A (Mata)</td></tr>
+                        <tr><td class="ingredient">🥚 Telur</td><td>Protein & Kolin</td></tr>
                         <tr><td class="ingredient">🥬 Buncis</td><td>Serat & Folat</td></tr>
-                        <tr><td class="ingredient">🌽 Jagung</td><td>Karbohidrat Kompleks</td></tr>
                     </table>
                     <div class="benefit-box">
                         <strong>Total Kalori: ±85 kkal</strong><br>
-                        Kombinasi serat tinggi untuk pencernaan lancar dan imunitas.
+                        Kombinasi serat tinggi untuk pencernaan.
                     </div>
                 </div>
                 <div class="food-icon-wrapper" onclick="toggleFood('stage-sayur')">
@@ -540,18 +457,12 @@
                 <div class="split-side">
                     <div class="food-emoji">🍇</div>
                     <h3>Anggur</h3>
-                    <p>
-                        <strong>69 kkal / 100g</strong><br>
-                        Kaya antioksidan resveratrol.<br>Mencegah penuaan dini.
-                    </p>
+                    <p>69 kkal / 100g<br>Kaya antioksidan resveratrol.</p>
                 </div>
                 <div class="split-side">
                     <div class="food-emoji">🍍</div>
                     <h3>Nanas</h3>
-                    <p>
-                        <strong>50 kkal / 100g</strong><br>
-                        Mengandung enzim Bromelain.<br>Membantu pencernaan protein.
-                    </p>
+                    <p>50 kkal / 100g<br>Mengandung enzim Bromelain.</p>
                 </div>
             </div>
         </div>
@@ -562,18 +473,18 @@
             <h2 class="section-title">Kesimpulan & Saran</h2>
             <div class="article-full-container">
                 <p>
-                    Kesimpulannya, data Riskesdas yang menunjukkan kenaikan angka obesitas harus menjadi alarm bagi kita semua. Pola makan sehat bukan pilihan, melainkan keharusan untuk memberi energi dan zat gizi yang tubuh butuhkan, serta mengurangi risiko penyakit degeneratif.
+                    Kesimpulannya, data Riskesdas yang menunjukkan kenaikan angka obesitas harus menjadi alarm bagi kita semua. Pola makan sehat bukan pilihan, melainkan keharusan untuk memberi energi dan zat gizi yang tubuh butuhkan.
                 </p>
                 <p>
                     Oleh karena itu, mari mulai langkah kecil dengan memilih menu seimbang seperti:
                 </p>
                 <ul style="margin-bottom: 1.5rem; line-height:1.7; color:#444; padding-left:2rem;">
                     <li>🍚 <strong>Nasi putih</strong> secukupnya sebagai sumber energi.</li>
-                    <li>🍗 <strong>Protein (Ayam/Tahu)</strong> dengan pengolahan rendah garam/gula.</li>
+                    <li>🍗 <strong>Protein (Ayam/Tahu)</strong> dengan pengolahan rendah garam.</li>
                     <li>🥗 <strong>Sayur & Buah</strong> wajib ada di setiap piring makan.</li>
                 </ul>
                 <p>
-                    Dengan menerapkan pola makan ini secara konsisten, kita tidak hanya memperbaiki statistik kesehatan nasional, tetapi juga berinvestasi untuk masa depan tubuh kita sendiri agar tetap aktif dan produktif.
+                    Dengan menerapkan pola makan ini secara konsisten, kita berinvestasi untuk masa depan tubuh kita sendiri agar tetap aktif dan produktif.
                 </p>
             </div>
         </div>
@@ -589,76 +500,54 @@
     </section>
 
     <script>
-        // 1. Navigation & Scroll
+        // 1. Navigation
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
-
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navMenu.classList.toggle('active');
-        });
-
+        menuToggle.addEventListener('click', (e) => { e.stopPropagation(); navMenu.classList.toggle('active'); });
         document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                navMenu.classList.remove('active');
-            }
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) { navMenu.classList.remove('active'); }
         });
-
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                navMenu.classList.remove('active');
+                e.preventDefault(); navMenu.classList.remove('active');
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
+        function scrollToSlide(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
 
-        function scrollToSlide(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // 2. Intersection Observer
+        // 2. Observer
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.2 });
-
         document.querySelectorAll('.slide').forEach(slide => observer.observe(slide));
 
-        // 3. Group Slide Logic
+        // 3. Group
         function showProfile(name, role, desc) {
             const wrapper = document.getElementById('groupWrapper');
             const frame = document.getElementById('profileFrame');
-            
             document.getElementById('pName').innerText = name;
             document.getElementById('pRole').innerText = role;
             document.getElementById('pDesc').innerText = desc;
-
-            wrapper.classList.add('active-state');
-            frame.classList.add('show');
+            wrapper.classList.add('active-state'); frame.classList.add('show');
         }
-
         function closeProfile() {
             document.getElementById('groupWrapper').classList.remove('active-state');
             document.getElementById('profileFrame').classList.remove('show');
         }
 
-        // 4. Food Slide Logic
+        // 4. Food
         let currentOpenFood = null;
         function toggleFood(stageId) {
             const stage = document.getElementById(stageId);
-            if (currentOpenFood === stageId) {
-                stage.classList.remove('active');
-                currentOpenFood = null;
-                return;
-            }
-            if (currentOpenFood) {
-                document.getElementById(currentOpenFood).classList.remove('active');
-            }
-            stage.classList.add('active');
-            currentOpenFood = stageId;
+            if (currentOpenFood === stageId) { stage.classList.remove('active'); currentOpenFood = null; return; }
+            if (currentOpenFood) { document.getElementById(currentOpenFood).classList.remove('active'); }
+            stage.classList.add('active'); currentOpenFood = stageId;
+        }
+
+        // 5. FULL ARTICLE MODAL
+        function toggleFullArticle() {
+            const modal = document.getElementById('fullArticleModal');
+            modal.classList.toggle('active');
         }
     </script>
 </body>
