@@ -3,544 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Makanan Sehat Bergizi Seimbang</title>
+    <title>6G - Makanan sehat bergizi seimbang</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥗</text></svg>">
+
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* ================= VARIABLES & RESET ================= */
-        :root {
-            --sage-green: #8FBC8F;
-            --sage-dark: #6B8E6B;
-            --cream: #F5F7FA;
-            --cream-accent: #F5F5DC;
-            --soft-orange: #FFB347;
-            --text-dark: #2D3436;
-            --text-light: #636E72;
-            --safe-padding: 5%;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Quicksand', sans-serif;
-            overflow-x: hidden;
-            background: var(--cream);
-            color: var(--text-dark);
-        }
-
-        /* ================= NAVBAR (Sticky & Glassmorphism) ================= */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 2000;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .nav-title {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--sage-green);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: center;
-            flex: 1;
-        }
-
-        .nav-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            padding: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-group {
-            background: var(--sage-green);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            font-family: 'Outfit', sans-serif;
-            box-shadow: 0 4px 15px rgba(143, 188, 143, 0.4);
-            cursor: pointer;
-        }
-
-        .btn-group:hover {
-            transform: translateY(-2px);
-            background: var(--sage-dark);
-        }
-
-        /* Dropdown Menu */
-        .nav-menu {
-            position: fixed;
-            top: 80px;
-            left: 20px;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-20px);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 2100;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            min-width: 200px;
-        }
-
-        .nav-menu.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
-
-        .nav-menu a:hover {
-            background: var(--cream-accent);
-            color: var(--sage-green);
-            transform: translateX(5px);
-        }
-
-        /* ================= SLIDE UTILITIES ================= */
-        .slide {
-            min-height: 100vh;
-            padding: 100px var(--safe-padding) 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .slide.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-content {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-        }
-
-        .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--sage-green);
-            margin-bottom: 2rem;
-            text-align: center;
-            font-weight: 800;
-        }
-
-        /* ================= SLIDE 1: HERO ================= */
-        #slide1 {
-            background: linear-gradient(135deg, var(--cream-accent) 0%, white 100%);
-            text-align: center;
-        }
-
-        .hero-box h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            color: var(--sage-green);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero-box p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* ================= SLIDE 2: KELOMPOK ================= */
-        .group-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 2rem;
-            width: 100%;
-            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .group-wrapper.active-state {
-            transform: translateX(-15%); 
-        }
-
-        .member-list {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 1rem;
-            width: 300px;
-        }
-
-        .member-card {
-            background: white;
-            padding: 1.2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-left: 5px solid var(--sage-green);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .member-card:hover {
-            transform: translateX(10px) scale(1.02);
-            background: var(--cream-accent);
-        }
-
-        .member-card.active {
-            background: var(--sage-green);
-            color: white;
-        }
-        
-        .member-card.active .member-role { color: #eee; }
-
-        .member-name { font-weight: 700; font-size: 1.1rem; }
-        .member-role { font-size: 0.85rem; color: var(--text-light); margin-top: 4px; }
-
-        .profile-frame {
-            width: 400px;
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            position: absolute;
-            left: 55%;
-            top: 0;
-            opacity: 0;
-            transform: translateX(30px) scale(0.95);
-            pointer-events: none;
-            transition: all 0.5s ease;
-        }
-
-        .profile-frame.show {
-            opacity: 1;
-            transform: translateX(0) scale(1);
-            pointer-events: all;
-        }
-
-        .profile-placeholder {
-            width: 120px;
-            height: 120px;
-            background: #eee;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            border: 4px solid var(--sage-green);
-        }
-
-        /* ================= SLIDE 3 (Formerly 8): ARTIKEL ================= */
-        .article-scroll-container {
-            width: 100%;
-            max-width: 900px;
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            max-height: 70vh;
-            overflow-y: auto;
-            text-align: left;
-        }
-
-        .article-scroll-container h3 {
-            color: var(--sage-dark);
-            margin-bottom: 1.5rem;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem; /* Sedikit diperbesar */
-            text-align: center; /* Dipusatkan agar seperti judul artikel */
-            border-bottom: 2px solid var(--cream-accent);
-            padding-bottom: 15px;
-        }
-
-        .article-scroll-container p {
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.2rem;
-            text-align: justify;
-        }
-
-        .quote-box {
-            background: var(--cream-accent);
-            border-left: 5px solid var(--soft-orange);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            color: var(--text-dark);
-            border-radius: 0 10px 10px 0;
-        }
-        
-        .quote-source {
-            display: block;
-            margin-top: 10px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--sage-green);
-        }
-
-        .menu-list-summary {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .menu-list-summary li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        .menu-list-summary li strong {
-            color: var(--sage-green);
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .menu-list-summary li::before {
-            content: "•";
-            color: var(--soft-orange);
-            font-weight: bold;
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-            top: -5px;
-        }
-
-        /* Scrollbar Artikel */
-        .article-scroll-container::-webkit-scrollbar { width: 8px; }
-        .article-scroll-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
-        .article-scroll-container::-webkit-scrollbar-thumb { background: var(--sage-green); border-radius: 4px; }
-
-
-        /* ================= SLIDE 4-7: MAKANAN ================= */
-        .food-stage {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .food-icon-wrapper {
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-            z-index: 10;
-        }
-        
-        .food-icon-wrapper:hover .food-emoji,
-        .food-stage.active .food-emoji {
-            transform: rotate(15deg) scale(1.1);
-        }
-        
-        .food-stage.active.even .food-emoji {
-            transform: rotate(-15deg) scale(1.1);
-        }
-
-        .food-emoji {
-            font-size: clamp(6rem, 15vw, 10rem);
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
-            display: block;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .food-label {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--sage-green);
-            margin-top: 1rem;
-            opacity: 1;
-            transition: opacity 0.3s;
-        }
-
-        .info-panel {
-            position: absolute;
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            width: 380px;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.5s ease;
-            pointer-events: none;
-            z-index: 5;
-            border: 2px solid var(--sage-green);
-        }
-
-        .food-stage.odd.active .food-icon-wrapper { transform: translateX(-180px); }
-        .food-stage.odd .info-panel { left: 55%; }
-
-        .food-stage.even.active .food-icon-wrapper { transform: translateX(180px); }
-        .food-stage.even .info-panel { right: 55%; }
-
-        .food-stage.active .info-panel {
-            opacity: 1;
-            transform: scale(1);
-            pointer-events: all;
-            transition-delay: 0.2s;
-        }
-
-        .nutrition-grid {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 10px;
-            margin-bottom: 1.5rem;
-        }
-        .nutri-item { font-weight: 600; color: var(--text-dark); }
-        .nutri-val { font-weight: 700; color: var(--sage-green); }
-        
-        .benefit-box {
-            background: var(--cream-accent);
-            padding: 1rem;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            border-left: 4px solid var(--soft-orange);
-        }
-
-        .breakdown-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-        }
-        .breakdown-table td { padding: 6px; border-bottom: 1px solid #eee; }
-        .breakdown-table tr:last-child td { border: none; }
-        .ingredient { font-weight: 700; color: var(--sage-green); }
-
-        /* ================= SLIDE 8: BUAH (NEW ANIMATION) ================= */
-        .split-container {
-            display: flex;
-            width: 100%;
-            gap: 2rem;
-            min-height: 500px;
-        }
-        
-        .split-side {
-            flex: 1;
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-        
-        /* Text wrapper style untuk animasi halus */
-        .split-side p {
-            transition: transform 0.4s ease, opacity 0.3s ease;
-            text-align: center;
-            color: var(--text-light);
-            margin-top: 10px;
-        }
-
-        /* Hover Effect yang diminta */
-        .split-side:hover {
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .split-side:hover .food-emoji { 
-            transform: rotate(45deg) scale(1.1); /* Berputar 45 derajat */
-        }
-
-        .split-side:hover p {
-            transform: translateY(20px); /* Teks turun ke bawah */
-        }
-
-        /* ================= SLIDE 9: PENUTUP ================= */
-        .closing-box {
-            text-align: center;
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        /* ================= RESPONSIVE (MOBILE) ================= */
-        @media (max-width: 768px) {
-            .navbar { padding: 0.8rem 1rem; }
-            .nav-title { font-size: 1rem; }
-            
-            .group-wrapper { flex-direction: column; align-items: center; }
-            .group-wrapper.active-state { transform: translateY(-20px); } 
-            .profile-frame {
-                position: relative;
-                left: auto;
-                top: 20px;
-                width: 100%;
-                transform: translateY(20px);
-            }
-            .profile-frame.show { transform: translateY(0); }
-
-            .food-stage { flex-direction: column; height: auto; padding: 2rem 0; }
-            
-            .food-stage.odd.active .food-icon-wrapper,
-            .food-stage.even.active .food-icon-wrapper {
-                transform: translateY(-50px) scale(0.8);
-            }
-            
-            .info-panel {
-                position: relative;
-                width: 100%;
-                left: auto !important;
-                right: auto !important;
-                margin-top: -20px;
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            
-            .food-stage.active .info-panel { transform: translateY(0); }
-            
-            .split-container { flex-direction: column; }
-            .article-scroll-container { padding: 1.5rem; max-height: 60vh; }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -548,20 +17,61 @@
         <button class="nav-btn" id="menuToggle">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
-        <div class="nav-title">Gizi Seimbang</div>
-        <button class="btn-group" onclick="scrollToSlide('slide2')">Kelompok</button>
+        <div class="nav-title">6G - Gizi Seimbang</div>
+        <button class="btn-group" onclick="scrollToSlide('slide1')">#youarewhatyoueat</button>
     </nav>
 
     <div class="nav-menu" id="navMenu">
         <a href="#slide1">🏠 Beranda</a>
         <a href="#slide2">👥 Tim Kami</a>
-        <a href="#slide3">📰 Artikel</a>
+        <a href="#slide3">📰 Artikel Ilmiah</a>
         <a href="#slide4">🍚 Karbohidrat</a>
         <a href="#slide5">🍗 Protein Hewani</a>
         <a href="#slide6">🧈 Protein Nabati</a>
         <a href="#slide7">🥗 Vitamin & Serat</a>
         <a href="#slide8">🍇 Buah-buahan</a>
-        <a href="#slide9">✨ Penutup</a>
+        <a href="#slide9">📑 Kesimpulan</a>
+        <a href="#slide10">✨ Penutup</a>
+    </div>
+
+    <div class="modal-overlay" id="fullArticleModal">
+        <div class="modal-content">
+            <button class="close-modal-btn" onclick="toggleFullArticle()">×</button>
+            <div class="article-full-container" style="box-shadow: none; border: none; padding: 0; max-width: 100%;">
+                <h3>“Pola Makan Sehat dan Pemenuhan Kebutuhan Gizi”</h3>
+                
+                <p>
+                    Makanan adalah salah satu kebutuhan pokok dalam hidup. Maka dari itu, menu makanan sehat harus diterapkan dalam kehidupan kita sehari-hari. Namun, di era kita ini, mulai banyak orang yang tidak mempedulikan gizi yang terkandung pada makanan yang mereka konsumsi. Orang-orang seringkali membeli makanan cepat saji yang lebih mudah dan relatif murah, tetapi tidak memiliki gizi seimbang yang kita butuhkan.
+                </p>
+
+                <p>
+                    Persatuan Ahli Gizi Indonesia (PERSAGI) menyoroti masih tingginya konsumsi makanan <em>ultra-processed food</em>, terutama di kalangan anak-anak dan remaja. Dalam peringatan Hari Gizi Nasional, PERSAGI mengingatkan kebiasaan mengonsumsi makanan dan minuman berpemanis serta makanan kemasan berisiko memicu berbagai penyakit kronis di kemudian hari.
+                </p>
+
+                <div class="quote-box">
+                    "Kita harus mengurangi makanan proses, karena itu menjadi risiko untuk penyakit. Banyak mengandung gula, garam, dan lemak. Apalagi minuman berpemanis, isinya hanya kalori dan energi, tidak ada zat gizi lain. Itu mudah diserap tubuh dan cepat disimpan menjadi lemak."
+                    <span class="quote-source">- Ni Ketut Aryas Tami (Edukator Gizi PERSAGI, detikcom, 21/1/2026)</span>
+                </div>
+
+                <p><strong>Rekomendasi Menu Makan Sehat Bergizi Seimbang:</strong></p>
+                <ul class="article-list">
+                    <li><strong>Nasi Putih:</strong> Sebagai karbohidrat utama, berperan sebagai sumber energi utama tubuh untuk aktivitas sehari-hari (130 kkal, Karbo 28g, Protein 2.7g per 100g).</li>
+                    <li><strong>Ayam Fillet Teriyaki:</strong> Protein hewani sebagai sumber protein utama (165 kkal, Protein 31g).</li>
+                    <li><strong>Tahu:</strong> Protein nabati sebagai lauk tambahan sekaligus pelengkap yang kaya kalsium (76 kkal, Protein 8g, Kalsium 350mg).</li>
+                    <li><strong>Sayur Orak-Arik:</strong> Sumber serat dengan isian wortel (Vitamin A), telur (protein), buncis (serat), dan jagung (karbohidrat).</li>
+                    <li><strong>Buah Nanas:</strong> Pelengkap yang mengandung enzim Bromelain untuk membantu proses pencernaan.</li>
+                    <li><strong>Buah Anggur:</strong> Pencuci mulut yang kaya antioksidan resveratrol untuk mencegah penuaan dini.</li>
+                </ul>
+
+                <p><strong>Kesimpulan</strong></p>
+                <p>
+                    Pola makan sehat itu penting karena makanan memberi energi dan zat gizi yang tubuh butuhkan. Kita harus mengurangi makanan cepat saji dan minuman manis yang banyak mengandung gula, garam, dan lemak seperti yang diingatkan PERSAGI.
+                </p>
+                <p>
+                    Lebih baik memilih menu seimbang seperti nasi putih, ayam fillet, tahu, sayur orak-arik, serta buah nanas dan anggur. Jika kita makan teratur dan bergizi, kemungkinan sakit berkurang dan tubuh bisa tumbuh serta beraktivitas dengan baik.
+                </p>
+            </div>
+        </div>
     </div>
 
     <section class="slide visible" id="slide1">
@@ -573,37 +83,56 @@
 
     <section class="slide" id="slide2">
         <div class="slide-content">
-            <h2 class="section-title">Tim Penyusun</h2>
-            <div class="group-wrapper" id="groupWrapper">
+            <h2 class="section-title">Anggota Kelompok</h2>
+            <div class="group-wrapper">
                 <div class="member-list">
-                    <div class="member-card" onclick="showProfile('Ketua', 'Project Manager', 'Mengatur alur kerja dan konsep utama presentasi.')">
+                    <div class="member-card" 
+                         onmouseover="hoverProfile('Ketua', 'Project Manager', 'Mengatur alur kerja dan konsep utama presentasi.', this)" 
+                         onmouseout="clearProfile()"
+                         onclick="lockProfile('Ketua', 'Project Manager', 'Mengatur alur kerja dan konsep utama presentasi.', this)">
                         <div class="member-name">1. Nama Ketua</div>
                         <div class="member-role">Ketua Kelompok</div>
                     </div>
-                    <div class="member-card" onclick="showProfile('Anggota 1', 'Researcher', 'Mencari data valid tentang nilai gizi makanan.')">
+                    <div class="member-card" 
+                         onmouseover="hoverProfile('Anggota 1', 'Researcher', 'Mencari data valid tentang nilai gizi makanan.', this)" 
+                         onmouseout="clearProfile()"
+                         onclick="lockProfile('Anggota 1', 'Researcher', 'Mencari data valid tentang nilai gizi makanan.', this)">
                         <div class="member-name">2. Nama Anggota 1</div>
                         <div class="member-role">Anggota</div>
                     </div>
-                    <div class="member-card" onclick="showProfile('Anggota 2', 'UI Designer', 'Merancang tata letak dan pemilihan warna.')">
+                    <div class="member-card" 
+                         onmouseover="hoverProfile('Anggota 2', 'UI Designer', 'Merancang tata letak dan pemilihan warna.', this)" 
+                         onmouseout="clearProfile()"
+                         onclick="lockProfile('Anggota 2', 'UI Designer', 'Merancang tata letak dan pemilihan warna.', this)">
                         <div class="member-name">3. Nama Anggota 2</div>
                         <div class="member-role">Anggota</div>
                     </div>
-                    <div class="member-card" onclick="showProfile('Anggota 3', 'Frontend Dev', 'Implementasi kode HTML/CSS dan Animasi.')">
+                    <div class="member-card" 
+                         onmouseover="hoverProfile('Anggota 3', 'Frontend Dev', 'Implementasi kode HTML/CSS dan Animasi.', this)" 
+                         onmouseout="clearProfile()"
+                         onclick="lockProfile('Anggota 3', 'Frontend Dev', 'Implementasi kode HTML/CSS dan Animasi.', this)">
                         <div class="member-name">4. Nama Anggota 3</div>
                         <div class="member-role">Anggota</div>
                     </div>
-                    <div class="member-card" onclick="showProfile('Anggota 4', 'Content Writer', 'Menulis narasi dan artikel pendukung.')">
+                    <div class="member-card" 
+                         onmouseover="hoverProfile('Anggota 4', 'Content Writer', 'Menulis narasi dan artikel pendukung.', this)" 
+                         onmouseout="clearProfile()"
+                         onclick="lockProfile('Anggota 4', 'Content Writer', 'Menulis narasi dan artikel pendukung.', this)">
                         <div class="member-name">5. Nama Anggota 4</div>
                         <div class="member-role">Anggota</div>
                     </div>
                 </div>
 
-                <div class="profile-frame" id="profileFrame">
-                    <div class="profile-placeholder">👤</div>
-                    <h3 id="pName" style="text-align: center; color: var(--sage-green);">Nama</h3>
-                    <p id="pRole" style="text-align: center; color: var(--soft-orange); font-weight: 700; margin-bottom: 1rem;">Role</p>
-                    <p id="pDesc" style="text-align: center; line-height: 1.6; color: var(--text-light);">Deskripsi tugas anggota.</p>
-                    <button onclick="closeProfile()" style="margin-top:1rem; width:100%; padding:8px; border:none; background:#eee; cursor:pointer; border-radius:8px;">Tutup</button>
+                <div class="profile-side-box" id="profileBox">
+                    <div id="profileContent">
+                        <div class="profile-placeholder">👥</div>
+                        <h3 style="color: var(--sage-green); margin-bottom:5px;">Tim Kelompok 6</h3>
+                        <p style="color: var(--soft-orange); font-weight: 700; margin-bottom: 1rem;">Kelas / Jurusan</p>
+                        <p style="line-height: 1.6; color: var(--text-light);">
+                            Arahkan kursor ke nama anggota di sebelah kiri untuk melihat detail tugas masing-masing.
+                        </p>
+                    </div>
+                    <button id="closeProfileBtn" class="close-profile-btn" onclick="unlockProfile()">Tutup X</button>
                 </div>
             </div>
         </div>
@@ -611,53 +140,20 @@
 
     <section class="slide" id="slide3">
         <div class="slide-content">
-            <h2 class="section-title">Pentingnya Gizi Seimbang</h2>
-            <div class="article-scroll-container">
-                <h3>Artikel Ilmiah Populer</h3>
-
+            <h2 class="section-title">Artikel Ilmiah Populer</h2>
+            <div class="article-full-container">
+                <h3>“Pola Makan Sehat dan Pemenuhan Kebutuhan Gizi”</h3>
                 <p>
-                    Makanan adalah salah satu kebutuhan pokok dalam hidup. Maka dari itu, menu makanan sehat harus diterapkan dalam kehidupan kita sehari-hari. Namun, di era kita ini, mulai banyak orang yang tidak mempedulikan gizi yang terkandung pada makanan yang mereka konsumsi. Orang-orang seringkali membeli makanan cepat saji yang lebih mudah dan relatif murah, tetapi tidak memiliki gizi seimbang yang kita butuhkan.
+                    Makanan adalah kebutuhan pokok, namun banyak orang di era ini tidak mempedulikan gizi. Orang seringkali membeli makanan cepat saji yang murah tapi tidak bergizi seimbang.
                 </p>
-
-                <p>
-                    Persatuan Ahli Gizi Indonesia (PERSAGI) menyoroti masih tingginya konsumsi makanan <em>ultra-processed food</em>, terutama di kalangan anak-anak dan remaja. Dalam peringatan Hari Gizi Nasional, PERSAGI mengingatkan kebiasaan mengonsumsi makanan dan minuman berpemanis serta makanan kemasan berisiko memicu berbagai penyakit kronis di kemudian hari.
-                </p>
-
-                <p>
-                    Edukator gizi PERSAGI, Ni Ketut Aryas Tami mengimbau masyarakat untuk membatasi konsumsi makanan UPF dan tinggi gula garam lemak (GGL).
-                </p>
-
                 <div class="quote-box">
-                    "Kita harus mengurangi makanan proses, karena itu menjadi risiko untuk penyakit. Banyak mengandung gula, garam, dan lemak. Apalagi minuman berpemanis, isinya hanya kalori dan energi, tidak ada zat gizi lain. Itu mudah diserap tubuh dan cepat disimpan menjadi lemak,"
-                    <span class="quote-source">- Ni Ketut Aryas Tami (detikcom, Rabu 21/1/2026)</span>
+                    "Kita harus mengurangi makanan proses, karena itu menjadi risiko untuk penyakit. Banyak mengandung gula, garam, dan lemak."
+                    <span class="quote-source">- Ni Ketut Aryas Tami (PERSAGI)</span>
                 </div>
-
-                <p>Untuk mewujudkan hal tersebut, berikut salah satu rekomendasi menu makan sehat bergizi seimbang:</p>
-
-                <ul class="menu-list-summary">
-                    <li>
-                        <strong>Nasi Putih;</strong> sebagai karbohidrat utama, nasi putih berperan sebagai sumber energi utama tubuh untuk aktivitas sehari-hari, dengan kalori 130 kkal, karbohidrat 28 g, dan protein 2.7 g per 100 g.
-                    </li>
-                    <li>
-                        <strong>Ayam Fillet Teriyaki;</strong> sebagai protein hewani yang berperan sebagai sumber protein utama, dengan kalori 165 kkal dan protein 31 g.
-                    </li>
-                    <li>
-                        <strong>Tahu;</strong> sebagai protein nabati yang berperan sebagai lauk tambahan sekaligus pelengkap, dengan kalori 76 kkal, protein 8 g, dan kalsium 350 mg.
-                    </li>
-                    <li>
-                        <strong>Sayur Orak-Arik;</strong> sebagai sumber serat pada makanan dengan isian wortel yang mengandung Vitamin A, telur yang mengandung protein, buncis yang mengandung serat, dan jagung yang mengandung karbohidrat.
-                    </li>
-                    <li>
-                        <strong>Buah Nanas;</strong> sebagai buah pelengkap yang mengandung enzim Bromelain untuk membantu proses pencernaan.
-                    </li>
-                    <li>
-                        <strong>Buah Anggur;</strong> sebagai buah pencuci mulut yang kaya antioksidan resveratrol untuk mencegah penuaan dini.
-                    </li>
-                </ul>
-
                 <p>
-                    Kesimpulannya, pola makan sehat itu penting karena makanan memberi energi dan zat gizi yang tubuh butuhkan, jadi kita harus mengurangi makanan cepat saji dan minuman manis yang banyak mengandung gula, garam, dan lemak seperti yang diingatkan PERSAGI; lebih baik memilih menu seimbang seperti nasi putih untuk karbohidrat, ayam fillet atau tahu untuk protein, sayur orak-arik untuk serat dan vitamin, serta buah seperti nanas dan anggur untuk membantu pencernaan dan memberi antioksidan, sehingga kalau kita makan teratur dan bergizi kemungkinan sakit berkurang dan tubuh bisa tumbuh dan beraktivitas dengan baik.
+                    Maka dari itu, menu makanan sehat harus diterapkan. Berikut adalah rekomendasi menu gizi seimbang dari kelompok kami.
                 </p>
+                <button class="read-full-btn" onclick="toggleFullArticle()">📖 Baca Artikel Lengkap</button>
             </div>
         </div>
     </section>
@@ -667,7 +163,7 @@
             <h2 class="section-title">Karbohidrat Utama</h2>
             <div class="food-stage odd" id="stage-nasi">
                 <div class="food-icon-wrapper" onclick="toggleFood('stage-nasi')">
-                    <div class="food-emoji">🍚</div>
+                    <img src="assets/nasi.png" alt="Nasi" class="food-img" onerror="this.src='https://placehold.co/150x150/png?text=Nasi'">
                     <div class="food-label">Nasi Putih</div>
                 </div>
                 <div class="info-panel">
@@ -691,19 +187,19 @@
             <h2 class="section-title">Protein Hewani</h2>
             <div class="food-stage even" id="stage-ayam">
                 <div class="info-panel">
-                    <h3 style="color:var(--sage-green); margin-bottom:1rem;">Ayam Fillet Teriyaki</h3>
+                    <h3 style="color:var(--sage-green); margin-bottom:1rem; font-size:1.3rem;">Ayam Fillet Teriyaki<br><span style="font-size:0.9rem; color:var(--text-light);">(Low Sodium & Less Sugar)</span></h3>
                     <div class="nutrition-grid">
                         <div class="nutri-item">Kalori</div><div class="nutri-val">165 kkal</div>
                         <div class="nutri-item">Protein</div><div class="nutri-val">31 g</div>
                         <div class="nutri-item">Lemak</div><div class="nutri-val">3.6 g</div>
                     </div>
                     <div class="benefit-box">
-                        <strong>Manfaat:</strong><br>
-                        Membangun dan memperbaiki jaringan otot, serta menjaga metabolisme tubuh.
+                        <strong>Info Sehat:</strong><br>
+                        Dimasak dengan kecap rendah natrium dan sedikit gula untuk mengurangi risiko penyakit.
                     </div>
                 </div>
                 <div class="food-icon-wrapper" onclick="toggleFood('stage-ayam')">
-                    <div class="food-emoji">🍗</div>
+                    <img src="assets/ayam.png" alt="Ayam" class="food-img" onerror="this.src='https://placehold.co/150x150/png?text=Ayam'">
                     <div class="food-label">Ayam Teriyaki</div>
                 </div>
             </div>
@@ -715,7 +211,7 @@
             <h2 class="section-title">Protein Nabati</h2>
             <div class="food-stage odd" id="stage-tahu">
                 <div class="food-icon-wrapper" onclick="toggleFood('stage-tahu')">
-                    <div class="food-emoji">🧈</div>
+                    <img src="assets/tahu.png" alt="Tahu" class="food-img" onerror="this.src='https://placehold.co/150x150/png?text=Tahu'">
                     <div class="food-label">Tahu Kuning</div>
                 </div>
                 <div class="info-panel">
@@ -740,32 +236,18 @@
             <div class="food-stage even" id="stage-sayur">
                 <div class="info-panel">
                     <h3 style="color:var(--sage-green); margin-bottom:1rem;">Sayur Orak-Arik</h3>
-                    <p style="font-size:0.9rem; margin-bottom:0.5rem; color:#666;">Komposisi Nutrisi:</p>
                     <table class="breakdown-table">
-                        <tr>
-                            <td class="ingredient">🥕 Wortel</td>
-                            <td>Vit A (Mata) & Beta Karoten</td>
-                        </tr>
-                        <tr>
-                            <td class="ingredient">🥚 Telur</td>
-                            <td>Protein Lengkap & Kolin</td>
-                        </tr>
-                        <tr>
-                            <td class="ingredient">🥬 Buncis</td>
-                            <td>Serat & Folat</td>
-                        </tr>
-                        <tr>
-                            <td class="ingredient">🌽 Jagung</td>
-                            <td>Karbohidrat Kompleks</td>
-                        </tr>
+                        <tr><td class="ingredient">🥕 Wortel</td><td>Vit A (Mata)</td></tr>
+                        <tr><td class="ingredient">🥚 Telur</td><td>Protein & Kolin</td></tr>
+                        <tr><td class="ingredient">🥬 Buncis</td><td>Serat & Folat</td></tr>
                     </table>
                     <div class="benefit-box">
                         <strong>Total Kalori: ±85 kkal</strong><br>
-                        Kombinasi serat tinggi untuk pencernaan lancar dan imunitas.
+                        Kombinasi serat tinggi untuk pencernaan.
                     </div>
                 </div>
                 <div class="food-icon-wrapper" onclick="toggleFood('stage-sayur')">
-                    <div class="food-emoji">🥗</div>
+                    <img src="assets/sayur.png" alt="Sayur" class="food-img" onerror="this.src='https://placehold.co/150x150/png?text=Sayur'">
                     <div class="food-label">Sayur Orak-Arik</div>
                 </div>
             </div>
@@ -777,128 +259,50 @@
             <h2 class="section-title">Buah Penutup</h2>
             <div class="split-container">
                 <div class="split-side">
-                    <div class="food-emoji">🍇</div>
+                    <img src="assets/anggur.png" alt="Anggur" class="food-img" onerror="this.src='https://placehold.co/150x150/png?text=Anggur'">
                     <h3>Anggur</h3>
-                    <p>
-                        <strong>69 kkal / 100g</strong><br>
-                        Kaya antioksidan resveratrol.<br>Mencegah penuaan dini.
-                    </p>
+                    <p>69 kkal / 100g<br>Kaya antioksidan resveratrol.</p>
                 </div>
                 <div class="split-side">
-                    <div class="food-emoji">🍍</div>
+                    <img src="assets/nanas.png" alt="Nanas" class="food-img" onerror="this.src='https://placehold.co/150x150/png?text=Nanas'">
                     <h3>Nanas</h3>
-                    <p>
-                        <strong>50 kkal / 100g</strong><br>
-                        Mengandung enzim Bromelain.<br>Membantu pencernaan protein.
-                    </p>
+                    <p>50 kkal / 100g<br>Mengandung enzim Bromelain.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="slide" id="slide9" style="background: var(--sage-green); color: white;">
-    <div class="slide-content">
-        <h2 class="section-title">Kesimpulan & Saran</h2>
-        <div class="article-full-container">
-            <p>
-                Kesimpulannya, pola makan sehat itu penting karena makanan memberi energi dan zat gizi yang tubuh butuhkan. Kita harus mengurangi makanan cepat saji dan minuman manis yang banyak mengandung gula, garam, dan lemak seperti yang diingatkan PERSAGI.
-            </p>
-            <p>
-                Lebih baik memilih menu seimbang seperti nasi putih, ayam fillet, tahu, sayur orak-arik, serta buah nanas dan anggur. Jika kita makan teratur dan bergizi, kemungkinan sakit berkurang dan tubuh bisa tumbuh serta beraktivitas dengan baik.
-            </p>
+    <section class="slide" id="slide9">
+        <div class="slide-content">
+            <h2 class="section-title">Kesimpulan & Saran</h2>
+            <div class="article-full-container">
+                <p>
+                    Kesimpulannya, pola makan sehat itu penting karena makanan memberi energi dan zat gizi yang tubuh butuhkan. Kita harus mengurangi makanan cepat saji dan minuman manis yang banyak mengandung gula, garam, dan lemak seperti yang diingatkan PERSAGI.
+                </p>
+                <p>
+                    Lebih baik memilih menu seimbang seperti nasi putih, ayam fillet, tahu, sayur orak-arik, serta buah nanas dan anggur. Jika kita makan teratur dan bergizi, kemungkinan sakit berkurang dan tubuh bisa tumbuh serta beraktivitas dengan baik.
+                </p>
 
-            <div class="disclaimer-box">
-                <div class="disclaimer-icon">⚠️</div>
+                <div class="disclaimer-box">
+                    <div class="disclaimer-icon">⚠️</div>
                     <div>
                         <span class="disclaimer-title">Catatan Penting (Disclaimer):</span>
                         Seluruh data nilai gizi (kalori, protein, vitamin) yang tertera dalam presentasi ini merupakan <strong>estimasi rata-rata</strong> berdasarkan bahan mentah standar. Angka nutrisi riil dapat berbeda tergantung pada <strong>metode pengolahan</strong> (digoreng/direbus), <strong>penggunaan bumbu</strong> (minyak/santan), dan <strong>ukuran porsi</strong> yang dikonsumsi.
                     </div>
                 </div>
-            
             </div>
         </div>
     </section>
 
-    <script>
-        // 1. Navigation & Scroll Logic
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
+    <section class="slide" id="slide10" style="background: var(--sage-green); color: white;">
+        <div class="slide-content closing-box">
+            <h1 style="font-size:3rem; margin-bottom:1rem;">Terima Kasih! 🙏</h1>
+            <div style="font-size:4rem; margin: 1rem 0;">🥗✨💧</div>
+            <p style="font-size:1.2rem; opacity:0.9;">"You are what you eat."</p>
+            <p style="margin-top:2rem;">Presentasi Makanan Sehat Bergizi Seimbang - Kelompok 6</p>
+        </div>
+    </section>
 
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navMenu.classList.toggle('active');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Smooth Scroll for links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                navMenu.classList.remove('active');
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        function scrollToSlide(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // 2. Intersection Observer (Fade In Animation per Slide)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.slide').forEach(slide => observer.observe(slide));
-
-        // 3. Group Slide Logic
-        function showProfile(name, role, desc) {
-            const wrapper = document.getElementById('groupWrapper');
-            const frame = document.getElementById('profileFrame');
-            
-            document.getElementById('pName').innerText = name;
-            document.getElementById('pRole').innerText = role;
-            document.getElementById('pDesc').innerText = desc;
-
-            wrapper.classList.add('active-state');
-            frame.classList.add('show');
-        }
-
-        function closeProfile() {
-            document.getElementById('groupWrapper').classList.remove('active-state');
-            document.getElementById('profileFrame').classList.remove('show');
-        }
-
-        // 4. Food Slide Logic (Toggle)
-        let currentOpenFood = null;
-
-        function toggleFood(stageId) {
-            const stage = document.getElementById(stageId);
-            
-            if (currentOpenFood === stageId) {
-                stage.classList.remove('active');
-                currentOpenFood = null;
-                return;
-            }
-
-            if (currentOpenFood) {
-                document.getElementById(currentOpenFood).classList.remove('active');
-            }
-
-            stage.classList.add('active');
-            currentOpenFood = stageId;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
-
